@@ -1,0 +1,19 @@
+{
+  "name": "music-library-api",
+  "version": "1.0.0",
+  "description": "A music library API. Manchester Codes bootcamp project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlopenshaw41/music-library-api.git"
+  },
+  "author": "Jennifer Openshaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlopenshaw41/music-library-api/issues"
+  },
+  "homepage": "https://github.com/jlopenshaw41/music-library-api#readme"
+}
