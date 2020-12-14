@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jlopenshaw41/music-library-api/issues"
   },
-  "homepage": "https://github.com/jlopenshaw41/music-library-api#readme"
+  "homepage": "https://github.com/jlopenshaw41/music-library-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
