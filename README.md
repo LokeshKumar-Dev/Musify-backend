@@ -29,6 +29,8 @@ Coming soon
 * Sequelize
 * MySQL & MySQL Workbench
 * Docker
+* Dotenv
+* Nodemon
 
 ## Languages
 
