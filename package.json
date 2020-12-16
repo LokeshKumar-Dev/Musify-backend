@@ -4,9 +4,11 @@
   "description": "A music library API. Manchester Codes bootcamp project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
     "start": "nodemon -r dotenv/config index.js",
-    "prestart" : "node scripts/create-database.js"
+    "prestart": "node scripts/create-database.js",
+    "pretest": "node scripts/create-database.js test",
+    "posttest": "node scripts/drop-database.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,10 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.6"
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   }
 }

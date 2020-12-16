@@ -28,6 +28,7 @@ Coming soon
 * Express
 * Sequelize
 * MySQL & MySQL Workbench
+* Mocha, Chai and SuperTest
 * Docker
 * Dotenv
 * Nodemon
