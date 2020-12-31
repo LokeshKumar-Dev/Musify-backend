@@ -4,7 +4,7 @@
   "description": "A music library API. Manchester Codes bootcamp project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 30000 --file ./tests/test-setup.js",
     "start": "nodemon -r dotenv/config index.js",
     "prestart": "node scripts/create-database.js",
     "pretest": "node scripts/create-database.js test",

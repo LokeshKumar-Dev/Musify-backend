@@ -19,4 +19,11 @@ const getArtistById = (req, res) => {
   });
 };
 
-module.exports = { create, list, getArtistById };
+const updateGenre = (req, res) => {
+  const { id } = req.params;
+  Artist.update(req.body, { where: { id } }).then(([numOfRowsUpdated]) => {
+    res.status(200).json([numOfRowsUpdated]);
+  });
+};
+
+module.exports = { create, list, getArtistById, updateGenre };
