@@ -45,7 +45,8 @@ describe("/albums", () => {
             expect(album.artistId).to.equal(artist.id);
             done();
           });
-        });
+        })
+        .catch((error) => done(error));
     });
 
     it("returns a 404 and does not create an album if the artist does not exist", (done) => {
@@ -63,7 +64,8 @@ describe("/albums", () => {
             expect(albums.length).to.equal(0);
             done();
           });
-        });
+        })
+        .catch((error) => done(error));
     });
   });
 });
