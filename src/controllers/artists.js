@@ -30,4 +30,16 @@ const updateGenre = (req, res) => {
   });
 };
 
-module.exports = { create, list, getArtistById, updateGenre };
+const deleteArtist = (req, res) => {
+  const { artistId } = req.params;
+  console.log(artistId);
+  Artist.destroy({ where: { id: artistId } }).then((numOfRowsDeleted) => {
+    if (numOfRowsDeleted === 0) {
+      res.status(404).json({ error: "The artist does not exist." });
+    } else {
+      res.status(204).json(numOfRowsDeleted);
+    }
+  });
+};
+
+module.exports = { create, list, getArtistById, updateGenre, deleteArtist };
