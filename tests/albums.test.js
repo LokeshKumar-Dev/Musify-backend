@@ -29,7 +29,7 @@ describe("/albums", () => {
   });
 
   describe("POST /artists/:artistId/albums", () => {
-    it("creates a new album for a given artist", (done) => {
+      it("creates a new album for a given artist", (done) => {
       request(app)
         .post(`/artists/${artist.id}/albums`)
         .send({
