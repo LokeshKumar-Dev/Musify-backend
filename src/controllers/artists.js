@@ -32,7 +32,6 @@ const updateGenre = (req, res) => {
 
 const deleteArtist = (req, res) => {
   const { artistId } = req.params;
-  console.log(artistId);
   Artist.destroy({ where: { id: artistId } }).then((numOfRowsDeleted) => {
     if (numOfRowsDeleted === 0) {
       res.status(404).json({ error: "The artist does not exist." });
