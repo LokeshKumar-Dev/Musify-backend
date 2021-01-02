@@ -22,7 +22,11 @@ const getArtistById = (req, res) => {
 const updateGenre = (req, res) => {
   const { id } = req.params;
   Artist.update(req.body, { where: { id } }).then(([numOfRowsUpdated]) => {
-    res.status(200).json([numOfRowsUpdated]);
+    if (numOfRowsUpdated === 0) {
+      res.status(404).json({ error: "The artist does not exist." });
+    } else {
+      res.status(200).json([numOfRowsUpdated]);
+    }
   });
 };
 

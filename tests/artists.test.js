@@ -106,7 +106,33 @@ describe("/artists", () => {
               done();
             });
           })
-          // .catch((error) => done(error));
+          .catch((error) => done(error));
+      });
+
+      it("updates artist name by id", (done) => {
+        const artist = artists[0];
+        request(app)
+          .patch(`/artists/${artist.id}`)
+          .send({ name: "Elton John" })
+          .then((res) => {
+            expect(res.status).to.equal(200);
+            Artist.findByPk(artist.id, { raw: true }).then((updatedArtist) => {
+              expect(updatedArtist.name).to.equal("Elton John");
+              done();
+            });
+          });
+      });
+
+      it("returns a 404 if the artist does not exist", (done) => {
+        request(app)
+          .patch("/artists/345")
+          .send({ name: "Buddy Holly" })
+          .then((res) => {
+            expect(res.status).to.equal(404);
+            expect(res.body.error).to.equal("The artist does not exist.");
+            done();
+          })
+          .catch((error) => done(error));
       });
     });
   });
