@@ -19,7 +19,7 @@ const getArtistById = (req, res) => {
   });
 };
 
-const updateGenre = (req, res) => {
+const update = (req, res) => {
   const { id } = req.params;
   Artist.update(req.body, { where: { id } }).then(([numOfRowsUpdated]) => {
     if (numOfRowsUpdated === 0) {
@@ -41,4 +41,4 @@ const deleteArtist = (req, res) => {
   });
 };
 
-module.exports = { create, list, getArtistById, updateGenre, deleteArtist };
+module.exports = { create, list, getArtistById, update, deleteArtist };
