@@ -17,8 +17,9 @@ describe("/albums", () => {
 
   beforeEach(async () => {
     try {
-      await Artist.destroy({ where: {} });
       await Album.destroy({ where: {} });
+      await Artist.destroy({ where: {} });
+      
       artist = await Artist.create({
         name: "Tame Impala",
         genre: "Rock",

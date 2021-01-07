@@ -2,6 +2,7 @@ const { Album, Artist } = require("../models");
 
 const create = (req, res) => {
   const { artistId } = req.params;
+
   Artist.findByPk(artistId).then((artist) => {
     if (!artist) {
       res.status(404).json({ error: "The artist could not be found." });
