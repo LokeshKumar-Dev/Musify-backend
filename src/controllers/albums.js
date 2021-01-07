@@ -11,8 +11,9 @@ const create = (req, res) => {
         name: req.body.name,
         year: req.body.year,
       }).then((album) => {
-        album.setArtist(artist);
-        res.status(201).json(album);
+        album.setArtist(artist).then((album) => {
+          res.status(201).json(album);
+        });
       });
     }
   });

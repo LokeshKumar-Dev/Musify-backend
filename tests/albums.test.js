@@ -17,8 +17,9 @@ describe("/albums", () => {
 
   beforeEach(async () => {
     try {
-      await Album.destroy({ where: {} });
       await Artist.destroy({ where: {} });
+      await Album.destroy({ where: {} });
+      
       
       artist = await Artist.create({
         name: "Tame Impala",
@@ -38,11 +39,9 @@ describe("/albums", () => {
           year: 2010,
         })
         .then((res) => {
-          console.log(res.body);
           expect(res.status).to.equal(201);
 
           Album.findByPk(res.body.id, { raw: true }).then((album) => {
-            console.log(album);
             expect(album.name).to.equal("InnerSpeaker");
             expect(album.year).to.equal(2010);
             expect(album.artistId).to.equal(artist.id);
