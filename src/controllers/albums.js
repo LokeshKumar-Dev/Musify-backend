@@ -10,8 +10,8 @@ const create = (req, res) => {
       Album.create({
         name: req.body.name,
         year: req.body.year,
-        artistId: req.params.artistId,
       }).then((album) => {
+        album.setArtist(artist);
         res.status(201).json(album);
       });
     }
