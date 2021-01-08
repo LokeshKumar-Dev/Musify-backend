@@ -76,7 +76,7 @@ The API has the following functionality:
 
 ## Status
 
-Project is: _in progress_
+Project is: COMPLETE
 
 ## Inspiration
 
