@@ -52,4 +52,14 @@ const update = (req, res) => {
   );
 };
 
-module.exports = { create, list, getAlbumsByArtistId, update };
+const deleteAlbum = (req, res) => {
+  const { albumId } = req.params;
+  Album.destroy({ where: { id: albumId } }).then((numOfRowsDeleted) => {
+    if (numOfRowsDeleted === 0) {
+      res.status(404).json({ error: "The album does not exist." });
+    }
+    res.status(204).json(numOfRowsDeleted);
+  });
+};
+
+module.exports = { create, list, getAlbumsByArtistId, update, deleteAlbum };

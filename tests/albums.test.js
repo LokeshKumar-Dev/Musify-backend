@@ -189,5 +189,32 @@ describe("/albums", () => {
           .catch((error) => done(error));
       });
     });
+
+    describe("DELETE /albums/:albumId", () => {
+      it("deletes album record by id", (done) => {
+        const album = albums[0];
+        request(app)
+          .delete(`/albums/${album.id}`)
+          .then((res) => {
+            expect(res.status).to.equal(204);
+            Album.findByPk(album.id).then((updatedAlbum) => {
+              expect(updatedAlbum).to.equal(null);
+              done();
+            });
+          })
+          .catch((error) => done(error));
+      });
+
+      it("returns a 404 if the album does not exist", (done) => {
+        request(app)
+          .delete("/albums/4567")
+          .then((res) => {
+            expect(res.status).to.equal(404);
+            expect(res.body.error).to.equal("The album does not exist.");
+            done();
+          })
+          .catch((error) => done(error));
+      });
+    });
   });
 });
