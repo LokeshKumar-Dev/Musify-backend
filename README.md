@@ -4,15 +4,15 @@ A music library API, built with Express, Node.js, Sequelize and MySQL. A Manches
 
 ## Table of contents
 
-* [General info](#general-info)
-* [Screenshots] (#screenshots)
-* [Concepts](#concepts)
-* [Technologies](#technologies)
-* [Languages](#languages)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+- [General info](#general-info)
+- [Screenshots](#screenshots)
+- [Concepts](#concepts)
+- [Technologies](#technologies)
+- [Languages](#languages)
+- [Features](#features)
+- [Status](#status)
+- [Inspiration](#inspiration)
+- [Contact](#contact)
 
 ## General info
 
@@ -34,45 +34,46 @@ In addition, Docker was used as a system-agnostic environment in which to create
 
 ![MySQL Workbench screenshot](images/mysql-workbench-screenshot.png)
 
-
 ## Concepts
 
 This API was created as part of the Manchester Codes Software Engineering course. The project covered the following concepts:
 
-* Databases & database design
-* Data schema
-* SQL
-* MySQL
-* Sequelize
-* Database querying and CRUD operations
-* Test Driven Development(TDD)
+- Databases & database design
+- Data schema
+- SQL
+- MySQL
+- Sequelize
+- Database querying and CRUD operations
+- Test Driven Development(TDD)
 
 ## Technologies
 
-* Express
-* Sequelize
-* MySQL & MySQL Workbench
-* Mocha, Chai and SuperTest
-* Docker
-* Node and Node Package Manager
-* Git & GitHub
-* Dotenv
-* Nodemon
-* Postman
+- Express
+- Sequelize
+- MySQL & MySQL Workbench
+- Mocha, Chai and SuperTest
+- Docker
+- Node.js and Node Package Manager
+- Git & GitHub
+- Dotenv
+- Nodemon
+- Postman
+
 ## Languages
 
-* JavaScript
-* SQL
+- JavaScript
+- SQL
 
 ## Features
 
 The API has the following functionality:
 
-* Create new artists, albums or songs
-* Get a list of all artists, all albums or all songs in the database
-* Query the data to retrieve specific artists, or albums/songs by specific artists, or even individual albums or songs
-* Update artist, album or song records in the database
-* Delete artist, album or song records from the database
+- Create new artists, albums or songs
+- Get a list of all artists, all albums or all songs in the database
+- Query the data to retrieve specific artists, or albums/songs by specific artists, or even individual albums or songs
+- Update artist, album or song records in the database
+- Delete artist, album or song records from the database
+
 ## Status
 
 Project is: _in progress_
