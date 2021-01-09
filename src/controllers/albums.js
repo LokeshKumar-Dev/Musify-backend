@@ -20,7 +20,14 @@ const create = (req, res) => {
 };
 
 const list = (req, res) => {
-  Album.findAll().then((albums) => {
+  Album.findAll({
+    include: [
+      {
+        model: Artist,
+        as: "artist",
+      },
+    ],
+  }).then((albums) => {
     res.status(200).json(albums);
   });
 };
@@ -32,9 +39,19 @@ const getAlbumsByArtistId = (req, res) => {
     if (!artist) {
       res.status(404).json({ error: "The artist could not be found." });
     } else {
-      Album.findAll({ where: { artistId: artistId } }).then((albums) => {
-        res.status(200).json(albums);
-      });
+      Album.findAll({
+        where: { artistId: artistId },
+        include: [
+          {
+            model: Artist,
+            as: "artist",
+          },
+        ],
+      })
+        .then((albums) => {
+          res.status(200).json(albums);
+        })
+        .catch(console.error);
     }
   });
 };

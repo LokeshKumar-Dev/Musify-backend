@@ -26,7 +26,18 @@ const create = (req, res) => {
 };
 
 const list = (req, res) => {
-  Song.findAll().then((songs) => {
+  Song.findAll({
+    include: [
+      {
+        model: Artist,
+        as: "artist",
+      },
+      {
+        model: Album,
+        as: "album",
+      },
+    ],
+  }).then((songs) => {
     res.status(200).json(songs);
   });
 };
@@ -38,7 +49,19 @@ const getSongsByArtistId = (req, res) => {
     if (!artist) {
       res.status(404).json({ error: "The artist could not be found." });
     } else {
-      Song.findAll({ where: { artistId: artistId } }).then((songs) => {
+      Song.findAll({
+        where: { artistId: artistId },
+        include: [
+          {
+            model: Artist,
+            as: "artist",
+          },
+          {
+            model: Album,
+            as: "album",
+          },
+        ],
+      }).then((songs) => {
         res.status(200).json(songs);
       });
     }
@@ -52,7 +75,19 @@ const getSongsByAlbumId = (req, res) => {
     if (!album) {
       res.status(404).json({ error: "The album could not be found." });
     } else {
-      Song.findAll({ where: { albumId: albumId } }).then((songs) => {
+      Song.findAll({
+        where: { albumId: albumId },
+        include: [
+          {
+            model: Artist,
+            as: "artist",
+          },
+          {
+            model: Album,
+            as: "album",
+          },
+        ],
+      }).then((songs) => {
         res.status(200).json(songs);
       });
     }
@@ -88,5 +123,5 @@ module.exports = {
   getSongsByArtistId,
   getSongsByAlbumId,
   update,
-  deleteSong
+  deleteSong,
 };
