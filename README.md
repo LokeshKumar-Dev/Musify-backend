@@ -53,9 +53,9 @@ This API was created as part of the Manchester Codes Software Engineering course
 
 - Databases & database design
 - Data schema
-- SQL
-- MySQL
-- Sequelize
+- API development
+- Using SQL & MySQL
+- Using an ORM to interact with a database
 - Database querying and CRUD operations
 - Test Driven Development(TDD)
 
@@ -71,6 +71,7 @@ This API was created as part of the Manchester Codes Software Engineering course
 - Dotenv
 - Nodemon
 - Postman
+- Heroku
 
 ## Languages
 
