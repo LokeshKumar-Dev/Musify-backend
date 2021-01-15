@@ -4,7 +4,7 @@ A music library API, built with Express, Node.js, Sequelize and MySQL. A Manches
 
 You can see the code by exploring this repository. You can also see a live demo of the API in action by visiting any of the following URLs:
 
-[Please note there is no front-end element of this project, the links below will return the raw data from the database]
+[Please note there is no front-end element of this project, the links below will return the raw data from the database - try opening the links in Firefox, which will format the data automatically]
 
 See all artists in the database: https://music-library-mcr-codes.herokuapp.com/artists
 
