@@ -1,7 +1,7 @@
 const { Artist } = require("../models");
 
 const welcome = (req, res) => {
-  return "Music Library API. Built by Jennifer Openshaw, January 2021. Visit https://music-library-mcr-codes.herokuapp.com/artists to get artists from the MySQL database. See documentation at https://github.com/jlopenshaw41/music-library-api for more info.";
+  res.status(200).send("Music Library API. Built by Jennifer Openshaw, January 2021. Visit https://music-library-mcr-codes.herokuapp.com/artists to get artists from the MySQL database. See documentation at https://github.com/jlopenshaw41/music-library-api for more info.");
 };
 
 const create = (req, res) => {
