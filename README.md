@@ -39,9 +39,10 @@ In addition, Docker was used as a system-agnostic environment in which to create
 
 ## Screenshots
 
-![Express app code screenshot](images/express-app-screenshot.png)
+Screenshot of the API deployed using Heroku. This shows the result of a GET request to show all artists in the database:
+![Screenshot of API deployed on Heroku](images/app-deployed-using-heroku.png)
 
-![Albums screenshot](images/album-model-controllers-screenshot.png)
+Using Postman & MySQL Workbench for testing during development:
 
 ![Postman screenshot](images/postman-screenshot.png)
 
