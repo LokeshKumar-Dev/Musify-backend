@@ -2,6 +2,19 @@
 
 A music library API, built with Express, Node.js, Sequelize and MySQL. A Manchester Codes bootcamp project.
 
+You can see the code by exploring this repository. You can also see a live demo of the API in action by visiting any of the following URLs:
+
+[Please note there is no front-end element of this project, the links below will return the raw data from the database]
+
+See all artists in the database: https://music-library-mcr-codes.herokuapp.com/artists
+
+See a particular artist record: https://music-library-mcr-codes.herokuapp.com/artists/1
+
+See all albums by a particular artist: https://music-library-mcr-codes.herokuapp.com/artists/1/albums
+
+See all songs on a particular album: https://music-library-mcr-codes.herokuapp.com/albums/1/songs
+
+(This is just a selection of the requests this API can handle - see [app.js](https://github.com/jlopenshaw41/music-library-api/blob/main/src/app.js) for all available routes)
 ## Table of contents
 
 - [General info](#general-info)
