@@ -7,6 +7,7 @@ const songControllers = require("./controllers/songs");
 app.use(express.json());
 
 // artists
+app.get("/", artistControllers.welcome);
 
 app.post("/artists", artistControllers.create);
 
