@@ -44,4 +44,4 @@ const deleteArtist = (req, res) => {
   });
 };
 
-module.exports = { create, list, getArtistById, update, deleteArtist, welcome };
+module.exports = { create, list, getArtistById, update, deleteArtist };
