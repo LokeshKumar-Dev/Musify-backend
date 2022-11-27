@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha tests/**/*.js --exit --recursive --timeout 30000 --file ./tests/test-setup.js",
     "start": "node index.js",
-    "start:dev": "nodemon -r dotenv/config index.js",
+    "start:dev": "nodemon --trace-warnings -r dotenv/config index.js",
     "prestart": "node scripts/create-database.js",
     "pretest": "node scripts/create-database.js test",
     "posttest": "node scripts/drop-database.js"
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jlopenshaw41/music-library-api#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },

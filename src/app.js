@@ -5,6 +5,7 @@ const albumControllers = require("./controllers/albums");
 const songControllers = require("./controllers/songs");
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // artists
 
@@ -16,27 +17,31 @@ app.get("/artists", artistControllers.list);
 
 app.get("/artists/:artistId", artistControllers.getArtistById);
 
-app.patch("/artists/:id", artistControllers.update);
+app.patch("/artists/:id", albumControllers.uploadImg.single('image'), artistControllers.update);
 
 app.delete("/artists/:artistId", artistControllers.deleteArtist);
 
 // albums
 
-app.post("/artists/:artistId/albums", albumControllers.create);
+app.post("/artists/:artistId/albums", albumControllers.uploadImg.single('image'), albumControllers.create);
 
 app.get("/albums", albumControllers.list);
+app.get("/albums/:image", albumControllers.imageStream);
 
 app.get("/artists/:artistId/albums", albumControllers.getAlbumsByArtistId);
 
-app.patch("/albums/:albumId", albumControllers.update);
+app.patch("/albums/:albumId", albumControllers.uploadImg.single('image'), albumControllers.update);
 
 app.delete("/albums/:albumId", albumControllers.deleteAlbum);
 
 // songs
 
-app.post("/artists/:artistId/albums/:albumId/songs", songControllers.create);
+app.post("/artists/:artistId/albums/:albumId/songs", songControllers.uploadSong.single('music'), songControllers.create);
+
+app.get("/songs/feed", songControllers.feed);
 
 app.get("/songs", songControllers.list);
+app.get("/songs/:file", songControllers.media);
 
 app.get("/artists/:artistId/songs", songControllers.getSongsByArtistId);
 

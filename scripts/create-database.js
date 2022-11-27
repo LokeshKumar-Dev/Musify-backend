@@ -32,6 +32,7 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME}`, (err) => {
       DB_PORT,
     });
     console.log(err);
+    connection.close();
   }
-  connection.close();
+  console.log('Connected');
 });

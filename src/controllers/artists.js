@@ -25,7 +25,10 @@ const getArtistById = (req, res) => {
 
 const update = (req, res) => {
   const { id } = req.params;
-  Artist.update(req.body, { where: { id } }).then(([numOfRowsUpdated]) => {
+
+  console.log({"image": req.file.filename, ...req.body})
+
+  Artist.update({"image": req.file.filename, ...req.body}, { where: { id } }).then(([numOfRowsUpdated]) => {
     if (numOfRowsUpdated === 0) {
       res.status(404).json({ error: "The artist does not exist." });
     } else {

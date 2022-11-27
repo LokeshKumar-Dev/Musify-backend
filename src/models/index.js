@@ -3,6 +3,8 @@ const ArtistModel = require("./artist");
 const AlbumModel = require("./album");
 const SongModel = require("./song");
 
+const SongDModel = require("./songD");
+
 const {
   DB_NAME,
   DB_USER,
@@ -11,6 +13,7 @@ const {
   DB_PORT,
   CLEARDB_DATABASE_URL,
 } = process.env;
+
 
 const setupDatabase = () => {
   const connection = CLEARDB_DATABASE_URL
@@ -25,6 +28,7 @@ const setupDatabase = () => {
   const Artist = ArtistModel(connection, Sequelize);
   const Album = AlbumModel(connection, Sequelize);
   const Song = SongModel(connection, Sequelize);
+  const SongD = SongDModel(connection, Sequelize);
 
   Album.belongsTo(Artist, { as: "artist" });
   Song.belongsTo(Artist, { as: "artist" });
@@ -35,6 +39,7 @@ const setupDatabase = () => {
     Artist,
     Album,
     Song,
+    SongD,
   };
 };
 

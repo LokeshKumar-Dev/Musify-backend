@@ -1,6 +1,7 @@
 module.exports = (connection, DataTypes) => {
   const schema = {
     name: DataTypes.STRING,
+    image: DataTypes.STRING,
     year: DataTypes.INTEGER,
   };
 
