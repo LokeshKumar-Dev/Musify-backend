@@ -4,13 +4,22 @@ const AlbumModel = require("./album");
 const SongModel = require("./song");
 
 const {
-  DB_NAME,
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_PORT,
-  CLEARDB_DATABASE_URL,
+  MYSQLDATABASE,
+  MYSQLUSER,
+  MYSQLPASSWORD,
+  MYSQLHOST,
+  MYSQLPORT,
+  MYSQL_URL,
 } = process.env;
+
+// const {
+//   DB_NAME,
+//   DB_USER,
+//   DB_PASSWORD,
+//   DB_HOST,
+//   PORT,
+//   CLEARDB_DATABASE_URL,
+// } = process.env;
 
 
 const setupDatabase = () => {
@@ -18,7 +27,7 @@ const setupDatabase = () => {
     ? new Sequelize(CLEARDB_DATABASE_URL)
     : new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
         host: DB_HOST,
-        port: DB_PORT,
+        port: PORT,
         dialect: "mysql",
         logging: false,
       });
