@@ -8,7 +8,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // artists
-
 app.get("/", artistControllers.welcome);
 
 app.post("/artists", artistControllers.create);
