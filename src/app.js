@@ -8,7 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // artists
-app.get("/", artistControllers.welcome);
+app.get("/", (res, req) => {
+    res.status(200).send("Musify API. Built by Lokesh Kumar M, November 2022. See documentation at https://github.com/LokeshKumar-Dev/Musify-backend for more info. Original By Jennifer(THANKS)");
+});
 
 app.post("/artists", artistControllers.create);
 

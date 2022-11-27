@@ -1,9 +1,5 @@
 const { Artist } = require("../models");
 
-const welcome = (req, res) => {
-  res.status(200).send("Music Library API. Built by Lokesh Kumar M, November 2022. See documentation at https://github.com/LokeshKumar-Dev/Musify-backend for more info.");
-};
-
 const create = (req, res) => {
   Artist.create(req.body).then((artist) => res.status(201).json(artist));
 };
