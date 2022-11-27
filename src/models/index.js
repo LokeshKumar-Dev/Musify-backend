@@ -23,11 +23,11 @@ const {
 
 
 const setupDatabase = () => {
-  const connection = CLEARDB_DATABASE_URL
-    ? new Sequelize(CLEARDB_DATABASE_URL)
-    : new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-        host: DB_HOST,
-        port: PORT,
+  const connection = MYSQL_URL
+    ? new Sequelize(MYSQL_URL)
+    : new Sequelize(MYSQLDATABASE, MYSQLUSER, MYSQLPASSWORD, {
+        host: MYSQLHOST,
+        port: MYSQLPORT,
         dialect: "mysql",
         logging: false,
       });
