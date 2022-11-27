@@ -1,7 +1,7 @@
 const { Artist } = require("../models");
 
 const welcome = (req, res) => {
-  res.status(200).send("Music Library API. Built by Jennifer Openshaw, January 2021. See documentation at https://github.com/jlopenshaw41/music-library-api for more info.");
+  res.status(200).send("Music Library API. Built by Lokesh Kumar M, November 2022. See documentation at https://github.com/LokeshKumar-Dev/Musify-backend for more info.");
 };
 
 const create = (req, res) => {

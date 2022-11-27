@@ -1,7 +1,7 @@
 {
-  "name": "music-library-api",
+  "name": "musify-api",
   "version": "1.0.0",
-  "description": "A music library API. Manchester Codes bootcamp project",
+  "description": "A musify API",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/**/*.js --exit --recursive --timeout 30000 --file ./tests/test-setup.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jlopenshaw41/music-library-api.git"
+    "url": "git+https://github.com/LokeshKumar-Dev/Musify-backend.git"
   },
-  "author": "Jennifer Openshaw",
+  "author": "Lokesh Kumar M",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jlopenshaw41/music-library-api/issues"
+    "url": "https://github.com/LokeshKumar-Dev/Musify-backend/issues"
   },
-  "homepage": "https://github.com/jlopenshaw41/music-library-api#readme",
+  "homepage": "https://github.com/LokeshKumar-Dev/Musify-backend#readme",
   "dependencies": {
     "express": "^4.17.1",
     "multer": "^1.4.5-lts.1",
