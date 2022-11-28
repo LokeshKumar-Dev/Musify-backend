@@ -1,6 +1,8 @@
 const { Album, Artist, Song, SongD } = require("../models");
 const multer = require('multer');
 const fs = require('fs');
+const Sequelize = require('sequelize');
+const op = Sequelize.Op;
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -286,6 +288,37 @@ const deleteSong = (req, res) => {
 };
 
 
+const getSongsByValue = async(req, res) => {
+  const { value } = req.params;
+
+  const songs = await Song.findAll({
+    where: { name: { [op.substring]: value } },
+    include: [
+      {
+        model: Artist,
+        as: "artist",
+      },
+      {
+        model: Album,
+        as: "album",
+      },
+    ],
+  });
+
+  const artists = await Artist.findAll({
+    where: { name: { [op.substring]: value } }
+  });
+
+  const albums = await Album.findAll({
+    where: { name: { [op.substring]: value } },
+  });
+
+  res.status(200).json({
+    song: songs,
+    artist: artists,
+    album: albums,
+  })
+};
 
 module.exports = {
   create,
@@ -295,5 +328,6 @@ module.exports = {
   getSongsByAlbumId,
   update,
   deleteSong,
+  getSongsByValue,
   uploadSong, media
 };

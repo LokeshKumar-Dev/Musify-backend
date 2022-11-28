@@ -52,4 +52,6 @@ app.patch("/songs/:songId", songControllers.update);
 
 app.delete("/songs/:songId", songControllers.deleteSong);
 
+app.get("/search/:value", songControllers.getSongsByValue);
+
 module.exports = app;
