@@ -288,7 +288,7 @@ const deleteSong = (req, res) => {
 };
 
 
-const getSongsByValue = async(req, res) => {
+const getSongsByValue = async (req, res) => {
   const { value } = req.params;
 
   const songs = await Song.findAll({
@@ -314,9 +314,23 @@ const getSongsByValue = async(req, res) => {
   });
 
   res.status(200).json({
-    song: songs,
-    artist: artists,
-    album: albums,
+    song: {
+      tracks: {
+        items: songs
+      }
+    },
+    artist: {
+      isPlaylist: true,
+      tracks: {
+        items: artists
+      }
+    },
+    album: {
+      isPlaylist: true,
+      tracks: {
+        items: albums
+      },
+    }
   })
 };
 
