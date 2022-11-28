@@ -1,9 +1,14 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
 const artistControllers = require("./controllers/artists");
 const albumControllers = require("./controllers/albums");
 const songControllers = require("./controllers/songs");
 
+app.use(cors({
+    origin: "*"
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
