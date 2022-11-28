@@ -291,7 +291,7 @@ const deleteSong = (req, res) => {
 const getSongsByValue = async (req, res) => {
   const { value } = req.params;
 
-  const songs = await Song.findAll({
+  const songs1 = await Song.findAll({
     where: { name: { [op.substring]: value } },
     include: [
       {
@@ -316,7 +316,7 @@ const getSongsByValue = async (req, res) => {
   res.status(200).json({
     song: {
       tracks: {
-        items: songs
+        items: songs1
       }
     },
     artist: {
