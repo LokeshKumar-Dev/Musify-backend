@@ -120,7 +120,7 @@ const feed = async (req, res) => {
 
   const new_releases_songs = await Song.findAll({
     where: {
-      year: date.getFullYear()
+      year: 2022,
     },
     order: [
       ['name', 'DESC'],
