@@ -5,6 +5,9 @@ const app = express();
 const artistControllers = require("./controllers/artists");
 const albumControllers = require("./controllers/albums");
 const songControllers = require("./controllers/songs");
+const authController = require("./controllers/authController");
+
+const authRoutes = require("./routes/authRoutes");
 
 app.use(cors({
     origin: "*"
@@ -14,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // artists
 app.get("/", (req, res) => {
-    res.status(200).send("Musify API. Built by Lokesh Kumar M, November 2022. See documentation at https://github.com/LokeshKumar-Dev/Musify-backend for more info. Original By Jennifer(THANKS)");
+    res.status(200).send("Musify API. Built by Lokesh Kumar M, November 2022. See documentation at https://github.com/LokeshKumar-Dev/Musify-backend for more info. Basic Strtucture By Jennifer(THANKS)");
 });
 
 app.post("/artists", artistControllers.create);
@@ -44,10 +47,10 @@ app.delete("/albums/:albumId", albumControllers.deleteAlbum);
 
 app.post("/artists/:artistId/albums/:albumId/songs", songControllers.uploadSong.single('music'), songControllers.create);
 
-app.get("/songs/feed", songControllers.feed);
+app.get("/songs/demo", songControllers.demo);
 
 app.get("/songs", songControllers.list);
-app.get("/songs/:file", songControllers.media);
+app.get("/songs/file/:file", songControllers.media);
 
 app.get("/artists/:artistId/songs", songControllers.getSongsByArtistId);
 
@@ -58,5 +61,11 @@ app.patch("/songs/:songId", songControllers.update);
 app.delete("/songs/:songId", songControllers.deleteSong);
 
 app.get("/search/:value", songControllers.getSongsByValue);
+
+app.use('/user' ,authRoutes);
+
+// Protect all routes after this middleware
+app.use(authController.protect);
+app.get("/songs/feed", songControllers.feed);
 
 module.exports = app;

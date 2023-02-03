@@ -1,7 +1,9 @@
 const Sequelize = require("sequelize");
+
 const ArtistModel = require("./artist");
 const AlbumModel = require("./album");
 const SongModel = require("./song");
+const UserModel = require("./user");
 
 const {
   MYSQLDATABASE,
@@ -35,6 +37,7 @@ const setupDatabase = () => {
   const Artist = ArtistModel(connection, Sequelize);
   const Album = AlbumModel(connection, Sequelize);
   const Song = SongModel(connection, Sequelize);
+  const User = UserModel(connection, Sequelize);
 
   Album.belongsTo(Artist, { as: "artist" });
   Song.belongsTo(Artist, { as: "artist" });
@@ -45,6 +48,7 @@ const setupDatabase = () => {
     Artist,
     Album,
     Song,
+    User,
   };
 };
 

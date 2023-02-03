@@ -7,7 +7,7 @@ const args = process.argv.slice(2)[0];
 const envFile = args === "test" ? "../.env.test" : "../.env";
 
 require("dotenv").config({
-  path: path.join(__dirname, envFile),
+  path: path.join(__dirname, '../.env'),
 });
 
 const { DB_PASSWORD, DB_NAME, DB_USER, DB_HOST, DB_PORT } = process.env;
@@ -30,6 +30,7 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME}`, (err) => {
       DB_USER,
       DB_HOST,
       DB_PORT,
+      path: path.join(__dirname, '../.env'),
     });
     console.log(err);
     connection.close();

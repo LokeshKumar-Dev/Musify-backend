@@ -1,4 +1,5 @@
 const { Album, Artist, Song, SongD } = require("../models");
+
 const multer = require('multer');
 const fs = require('fs');
 const Sequelize = require('sequelize');
@@ -115,12 +116,48 @@ const list = (req, res) => {
   });
 };
 
+const demo = async (req, res) => {
+  const new_releases_songs = await Song.findAll({
+    where: {
+      year: {
+        [op.lt]: 2022
+      }
+    },
+    order: [
+      ['name', 'DESC'],
+    ],
+    limit: 15,
+    include: [
+      {
+        model: Artist,
+        as: "artist",
+      },
+      {
+        model: Album,
+        as: "album",
+      },
+    ],
+  });
+
+  const new_releases = {
+    "id": "1",
+    "name": "90's Gold",
+    "description": "New to music world",
+    "isPlaylist": false,
+    "tracks": {
+      "image": "https://www.sunpictures.in/wp-content/uploads/2021/03/Anirudh-Ravichander-1-150x150.jpg",
+      "items": new_releases_songs
+    }
+  }
+
+  res.status(200).json([new_releases]);
+};
+
 const feed = async (req, res) => {
-  const date = new Date()
 
   const new_releases_songs = await Song.findAll({
     where: {
-      year: date.getFullYear()
+      year: 2022
     },
     order: [
       ['name', 'DESC'],
@@ -258,7 +295,18 @@ const getSongsByAlbumId = (req, res) => {
           },
         ],
       }).then((songs) => {
-        res.status(200).json(songs);
+        const album_songs = {
+          "id": albumId,
+          "name": album.name,
+          "description": album.genre,
+          "image": album.image,
+          "isPlaylist": false,
+          "tracks": {
+            "image": "https://www.sunpictures.in/wp-content/uploads/2021/03/Anirudh-Ravichander-1-150x150.jpg",
+            "items": songs
+          }
+        }
+        res.status(200).json(album_songs);
       });
     }
   });
@@ -321,12 +369,14 @@ const getSongsByValue = async (req, res) => {
     },
     artist: {
       isPlaylist: true,
+      isAlbum: false,
       tracks: {
         items: artists
       }
     },
     album: {
       isPlaylist: true,
+      isAlbum: true,
       tracks: {
         items: albums
       },
@@ -338,6 +388,7 @@ module.exports = {
   create,
   list,
   feed,
+  demo,
   getSongsByArtistId,
   getSongsByAlbumId,
   update,
