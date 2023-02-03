@@ -64,7 +64,7 @@ app.get("/search/:value", songControllers.getSongsByValue);
 
 app.use('/user' ,authRoutes);
 
-// Protect all routes after this middleware
+// Protect all routes after this middleware Yes
 app.use(authController.protect);
 app.get("/songs/feed", songControllers.feed);
 
