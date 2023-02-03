@@ -233,7 +233,7 @@ const feed = async (req, res) => {
     }
   }
 
-  // res.status(200).json({ "status": 200, "data": [new_releases] });
+  // res.status(200).json({ "status": 200, "data": [new_releases] });;
   res.status(200).json([new_releases, top_hits, artist]);
 };
 
